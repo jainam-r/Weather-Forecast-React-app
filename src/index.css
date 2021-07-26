@@ -11,3 +11,16 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+#heading {
+  text-align: center;
+  font-size: 4rem;
+}
+
+#country-list {
+  background-color:coral;
+}
+
+.col-sm-4 {
+  height: 80%;
+}
