@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Forecast from './Forecast';
+import Hmm from './Hmm';
+import Try2 from './Try2'
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Forecast />
+    <Hmm />
   </React.StrictMode>,
   document.getElementById('root')
 );
