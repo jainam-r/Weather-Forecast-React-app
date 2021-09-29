@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Hmm from './Hmm';
-import Try2 from './Try2'
+import ExtractInfo from './ExtractInfo';
 
 
 ReactDOM.render(
   <React.StrictMode>
-    <Hmm />
+    <ExtractInfo />
   </React.StrictMode>,
   document.getElementById('root')
 );

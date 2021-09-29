@@ -1,8 +1,8 @@
-import Try2 from './Try2';
+// import Try2 from './Try2';
 import React,{useState} from 'react';
+import DisplayWeather from './DisplayWeather';
 
-
-function Hmm () {
+function ExtractInfo () {
     const[city,setCity] = useState('mumbai')
     const[man,setMan] = useState([])
     // const handleSubmit = () => {
@@ -24,9 +24,10 @@ function Hmm () {
             }
           })
           .then(response =>response.json())
-          .then(data=>data['list'])
+          .then(data=>data)
           //setMan(data);
           setMan(data)
+          console.log(data)
           console.log(man)
           }
     return (
@@ -37,8 +38,17 @@ function Hmm () {
                 </label>
                 <button onClick={e=>Tryy(e)}>submit</button>
             </form>
-            <h3>{man[0].name} temperature is {man[0].main.temp} but feels like {man[0].main.feels_like} </h3>
+            {man.cod === '200' ? (
+                <div>
+                <h3>Weather Data</h3>
+                <DisplayWeather data={man} />
+                 {/* <h3>{man[0].name} temperature is {man[0].main.temp} but feels like {man[0].main.feels_like} </h3> */}
+                 </div>
+            ): (
+                <h3>Submit a city name</h3>
+            )}
+           
         </div>
     )
 }
-export default Hmm;
+export default ExtractInfo;
