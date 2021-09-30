@@ -3,17 +3,10 @@ import React,{useState} from 'react';
 import DisplayWeather from './DisplayWeather';
 
 function ExtractInfo () {
-    const[city,setCity] = useState('mumbai')
+    const[city,setCity] = useState('')
     const[man,setMan] = useState([])
-    // const handleSubmit = () => {
-    //     //e.preventDefault()
-    //     let a = Try2(city)
-    //     console.log(a)
-    // }
     async function Tryy(e) {
-        e.preventDefault();
-        //const [cont,setCont] = useState('mumbai')
-          
+        e.preventDefault();      
           const url = "https://community-open-weather-map.p.rapidapi.com/find?q=" + city
           //let url = urll + city
           const data = await fetch(url, {
@@ -25,18 +18,18 @@ function ExtractInfo () {
           })
           .then(response =>response.json())
           .then(data=>data)
-          //setMan(data);
           setMan(data)
           console.log(data)
           console.log(man)
           }
     return (
-        <div>
-            <form>
-                <label>
-                    <input type="text" value={city} onChange={(e)=>setCity(e.target.value)}/>
-                </label>
-                <button onClick={e=>Tryy(e)}>submit</button>
+        <div className="container-fluid" id="inp">
+            <form className="form-inline">
+                {/* <label htmlFor="formGroupExampleInput" className="col-sm-2 col-form-label">City </label> */}
+                <div className="form-group">
+                <input type="text" className="form-control" id="formGroupExampleInput" placeholder="City Name" value={city} onChange={(e)=>setCity(e.target.value)}/>
+                </div>
+                <button className="btn btn-primary" onClick={e=>Tryy(e)}>submit</button>
             </form>
             {man.cod === '200' ? (
                 <div>
@@ -50,5 +43,5 @@ function ExtractInfo () {
            
         </div>
     )
-}
+} 
 export default ExtractInfo;
